@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+
+{% block content%}
+
+
+{% comment %} {% for a in abc.all %} {% endcomment %}
+
+<div class = "container">
+<h1>{{a.title}}</h1>
+<p>{{a.pub_date}}</p>
+<p>{{a.body}}</p>
+<br>
+
+{% if user.is_authenticated %}
+<a class = "btn btn-dark" href="{% url 'update' a.id %}">편집</a>
+<a class = "btn btn-dark" href="{% url 'delete' a.id %}">삭제</a>
+<br><br><br>
+{% endif %}
+
+
+<a href="{% url 'home' %}">돌아가기</a>
+
+
+
+</div>
+
+</body>
+
+{% endblock %}
